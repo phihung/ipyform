@@ -1,0 +1,38 @@
+[project]
+name = "ipyform"
+version = "0.1.0"
+description = "Extension to render Google Colab Form on regular Jupyter Notebooks"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["chompjs", "ipywidgets", "markdown"]
+
+[project.urls]
+"Homepage" = "https://phihung.github.io/ipyform/"
+"Source" = "https://github.com/phihung/ipyform"
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "ipykernel>=6.29.5",
+    "pytest>=8.3.2",
+    "pytest-cov>=5.0.0",
+    "ruff>=0.0.284",
+    "inline-snapshot>=0.13.0",
+    "testbook>=0.4.2",
+    "dirty-equals>=0.8.0",
+    "jupyter>=1.1.1",
+    "anywidget>=0.9.13",
+    "nbstripout>=0.7.1",
+    "twine>=5.1.1",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+addopts = "--cov src --cov-branch --cov-report term --cov-report html --basetemp=local"

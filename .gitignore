@@ -1,0 +1,13 @@
+.venv
+.sesskey
+tailwind.config.js
+local
+__pycache__
+.ipynb_checkpoints
+.coverage
+htmlcov
+dist
+
+docs/.quarto
+docs/_site
+/*.ipynb
