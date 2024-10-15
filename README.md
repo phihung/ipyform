@@ -1,12 +1,8 @@
 # ipyform
 
-Extension to render [Google Colab Form](https://colab.research.google.com/notebooks/forms.ipynb) on regular Jupyter Notebooks, using the **same syntax**.
+Extension to render [Google Colab Form](https://colab.research.google.com/notebooks/forms.ipynb) on regular Jupyter Notebooks.
 
-Tested on: Jupyter notebooks, JupyterLab and Vscode.
-
-_The solution has no effect (does nothing) when running on Colab._
-
-**Installation**
+![example](./example/screenshot.png)
 
 ```bash
 pip install ipyform
@@ -14,6 +10,10 @@ pip install ipyform
 # or with uv
 uv add ipyform
 ```
+
+Tested on: Jupyter notebooks, JupyterLab and Vscode.
+
+_The solution has no effect (does nothing) when running on Colab._
 
 ## Usage
 
@@ -30,20 +30,12 @@ Here is a reproduction of official [Google Colab example](./example/colab_offica
 
 ### With cell magic
 
-Load
-
-```python
-%load_ext ipyform
-```
-
-Use
-
 > [!TIP]
 > If you use vscode Pylance, use `#! %%form` instead of `%%form`. See [Caveats](#caveats)
 
 <table border="0">
 <tr>
-<td>
+<td style="width:50%">
 
 ```python
 %%form --col 2
@@ -63,7 +55,7 @@ date_input = '2018-03-22' # @param {type:"date"}
 ```
 
 </td>
-<td>
+<td style="width:50%">
 
 ![](./example/form.png)
 
