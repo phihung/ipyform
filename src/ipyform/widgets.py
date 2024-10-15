@@ -31,29 +31,30 @@ class Field:
 def param_to_field(p: Param) -> Field:
     kwargs = dict(
         description=p.variable,
-        value=p.value,
-        continuous_update=False,
+        value=str(p.value),
         style={"description_width": "150px"},
+        layout=dict(width="400px"),
     )
     w_field = None
     if p.field_type == "dropdown":
-        kwargs["value"] = str(p.value)
         if p.allow_input:
-            w_field = w.Combobox(options=p.options, **kwargs)
+            w_field = w.Combobox(options=p.options, continuous_update=False, **kwargs)
         else:
-            kwargs.pop("continuous_update")
             w_field = w.Dropdown(options=p.options, **kwargs)
     elif p.field_type == "slider":
-        w_field = w.FloatSlider(min=p.min, max=p.max, step=p.step, **kwargs)
+        kwargs["value"] = p.value
+        w_field = w.FloatSlider(
+            min=p.min, max=p.max, step=p.step, continuous_update=False, **kwargs
+        )
     elif p.field_type == "input":
         if p.var_type == "boolean":
-            kwargs.pop("continuous_update")
+            kwargs["value"] = p.value
             w_field = w.Checkbox(**kwargs)
         elif p.var_type == "date":
-            w_field = w.DatePicker(value=date.fromisoformat(p.value), description=p.variable)
+            kwargs["value"] = date.fromisoformat(p.value)
+            w_field = w.DatePicker(**kwargs)
         else:
-            kwargs["value"] = str(p.value)
-            w_field = w.Text(**kwargs, placeholder=p.placeholder or "")
+            w_field = w.Text(**kwargs, continuous_update=False, placeholder=p.placeholder or "")
     else:  # pragma: no cover
         raise ValueError(f"Unknown field type: {p.field_type}")
     return Field(param=p, widget=w_field)

@@ -52,8 +52,7 @@ def form(args_str, cell, local_ns):
         logger.warning(f"Error at line {err.lineno}. {err.error}")
     col = args.col or CONFIG.get("col", 1)
     layout = dict(display="grid", grid_template_columns="auto " * col)
-    f = FormWidget(form_data, layout=layout, ns=local_ns)
-    display(f)
+    return FormWidget(form_data, layout=layout, ns=local_ns)
 
 
 @magic_arguments()
