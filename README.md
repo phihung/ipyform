@@ -1,5 +1,7 @@
 # ipyform
 
+[![codecov](https://codecov.io/gh/phihung/ipyform/graph/badge.svg)](https://codecov.io/gh/phihung/ipyform)
+
 Extension to render [Google Colab Form](https://colab.research.google.com/notebooks/forms.ipynb) on regular Jupyter Notebooks.
 
 ![example](./example/screenshot.png)
